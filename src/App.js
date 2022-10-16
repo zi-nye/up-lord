@@ -1,10 +1,17 @@
-import React from "react";
-import Login from "./Login";
+import React, { useState } from "react";
+import Login from "./Routes/Login";
+import Router from "./Routes/router";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const onClickLoginBtn = () => {
+    setIsLoggedIn(true);
+  };
+
   return (
     <div className="App">
-      <Login />
+      {isLoggedIn ? <Router /> : <Login onClickLoginBtn={onClickLoginBtn} />}
     </div>
   );
 }

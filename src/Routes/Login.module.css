@@ -1,0 +1,108 @@
+@font-face {
+  font-family: "SANGJUGyeongcheonIsland";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/SANGJUGyeongcheonIsland.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "HallymGothic-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+html {
+  font-size: 14px;
+}
+.header {
+  font-size: 1rem;
+}
+.logo {
+  display: flex;
+}
+.logoImg {
+  height: 1.429rem;
+  border-radius: 7.143rem;
+}
+.logoLetter {
+  font-family: "HallymGothic-Regular";
+  color: black;
+  height: 2.143rem;
+  font-size: 1.143rem;
+}
+.bibleVerse {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #505455;
+}
+.bibleVerse1,
+.bibleVerse2,
+.bibleVerse3 {
+  padding-bottom: 0.714rem;
+}
+.bibleVerse4 {
+  padding-bottom: 0.929rem;
+}
+.bibleName {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.subtitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.143rem;
+  font-weight: 100;
+  padding-bottom: 0.357rem;
+  color: #505455;
+}
+.subtitle1,
+.subtitle2 {
+  padding-bottom: 0.357rem;
+}
+.kakaoLoginImg {
+  width: 23rem;
+}
+/* 모바일 */
+@media screen and (max-width: 800px) {
+  .root {
+    display: flex;
+    justify-content: center;
+  }
+  .app {
+    background-color: white;
+    padding: 2.3rem 0;
+    height: 0vh;
+  }
+  .logo {
+    padding-bottom: 22vh;
+  }
+  .bible {
+    padding-bottom: 18vh;
+    font-family: "HallymGothic-Regular";
+  }
+}
+/* pc */
+@media screen and (min-width: 800px) {
+  .root {
+    display: flex;
+    justify-content: center;
+  }
+  .app {
+    margin-top: 2.857rem;
+    background-color: white;
+    border: 0.07rem solid #dbe1e4;
+    padding: 4.286rem 2.857rem;
+  }
+  .logo {
+    padding-bottom: 18vh;
+  }
+  .bible {
+    padding-bottom: 15vh;
+    font-family: "HallymGothic-Regular";
+  }
+}
