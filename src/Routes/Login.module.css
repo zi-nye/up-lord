@@ -31,26 +31,6 @@ html {
   height: 2.143rem;
   font-size: 1.143rem;
 }
-.bibleVerse {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #505455;
-}
-.bibleVerse1,
-.bibleVerse2,
-.bibleVerse3 {
-  padding-bottom: 0.714rem;
-}
-.bibleVerse4 {
-  padding-bottom: 0.929rem;
-}
-.bibleName {
-  font-size: 1rem;
-  font-weight: 600;
-}
 .subtitle {
   display: flex;
   flex-direction: column;
@@ -67,8 +47,8 @@ html {
 .kakaoLoginImg {
   width: 23rem;
 }
-/* 모바일 */
-@media screen and (max-width: 800px) {
+/* 모바일 세로 */
+@media (max-width: 767.98px) {
   .root {
     display: flex;
     justify-content: center;
@@ -85,9 +65,36 @@ html {
     padding-bottom: 18vh;
     font-family: "HallymGothic-Regular";
   }
+  .bibleVerse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #505455;
+  }
+  .bibleVerse1over2,
+  .bibleVerse2over2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .bibleVerse1,
+  .bibleVerse2,
+  .bibleVerse3 {
+    display: block;
+    padding-bottom: 0.714rem;
+  }
+  .bibleVerse4 {
+    padding-bottom: 0.929rem;
+  }
+  .bibleName {
+    font-size: 1rem;
+    font-weight: 600;
+  }
 }
-/* pc */
-@media screen and (min-width: 800px) {
+/* 패드 세로 */
+@media (min-width: 768px) and (max-width: 991.98px) {
   .root {
     display: flex;
     justify-content: center;
@@ -104,5 +111,78 @@ html {
   .bible {
     padding-bottom: 15vh;
     font-family: "HallymGothic-Regular";
+  }
+  .bibleVerse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #505455;
+  }
+  .bibleVerse1over2,
+  .bibleVerse2over2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .bibleVerse1,
+  .bibleVerse2,
+  .bibleVerse3 {
+    padding-bottom: 0.714rem;
+  }
+  .bibleVerse4 {
+    padding-bottom: 0.929rem;
+  }
+  .bibleName {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
+/* PC 화면 1200px 이하, PC 화면 1200px 이상 1920px 이하, PC 화면 1920px 이상, 패드 가로 */
+/* 1920px 이상은 기기가 저한테 없어요 ㅠㅡㅠㅡㅠㅡㅠㅡㅠ */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .root {
+    display: flex;
+    justify-content: center;
+  }
+  .app {
+    margin-top: 1.357rem;
+    background-color: white;
+    border: 0.07rem solid #dbe1e4;
+    padding: 4.286rem 2.857rem;
+  }
+  .logo {
+    padding-bottom: 18vh;
+  }
+  .bible {
+    padding-bottom: 15vh;
+    font-family: "HallymGothic-Regular";
+  }
+  .bibleVerse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #505455;
+  }
+  .bibleVerse1over2,
+  .bibleVerse2over2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .bibleVerse1,
+  .bibleVerse2,
+  .bibleVerse3 {
+    padding-bottom: 0.714rem;
+  }
+  .bibleVerse4 {
+    padding-bottom: 0.929rem;
+  }
+  .bibleName {
+    font-size: 1rem;
+    font-weight: 600;
   }
 }

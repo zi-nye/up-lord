@@ -14,13 +14,17 @@ function Login({ onClickLoginBtn }) {
           </div>
           <div className={styles.bible}>
             <div className={styles.bibleVerse}>
-              <div className={styles.bibleVerse1}>청년이 무엇으로</div>
-              <div className={styles.bibleVerse2}>
-                그 행실을 깨끗케 하리이까
-              </div>
-              <div className={styles.bibleVerse3}>주의 말씀을 따라</div>
-              <div className={styles.bibleVerse4}>삼갈 것이니이다</div>
-              <div className={styles.bibleName}>시편 119:9</div>
+              <span className={styles.bibleVerse1over2}>
+                <span className={styles.bibleVerse1}>청년이 무엇으로</span>
+                <span className={styles.bibleVerse2}>
+                  그 행실을 깨끗케 하리이까
+                </span>
+              </span>
+              <span className={styles.bibleVerse2over2}>
+                <span className={styles.bibleVerse3}>주의 말씀을 따라</span>
+                <span className={styles.bibleVerse4}>삼갈 것이니이다</span>
+              </span>
+              <span className={styles.bibleName}>시편 119:9</span>
             </div>
           </div>
           <div className={styles.subtitle}>
@@ -29,12 +33,14 @@ function Login({ onClickLoginBtn }) {
             </div>
           </div>
         </h1>
-        <img
-          className={styles.kakaoLoginImg}
-          src={kakaoLogin}
-          alt="kakao-login"
-          onClick={onClickLoginBtn}
-        />
+        <div className={styles.kakaoLoginImgDiv}>
+          <img
+            className={styles.kakaoLoginImg}
+            src={kakaoLogin}
+            alt="kakao-login"
+            onClick={onClickLoginBtn}
+          />
+        </div>
       </div>
     </div>
   );
