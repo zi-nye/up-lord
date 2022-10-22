@@ -1,6 +1,6 @@
 import React from "react";
-import kakaoLogin from "./kakao_login_large_wide.png";
-import logo1 from "./logo1.png";
+import kakaoLogin from "../img/kakao_login_large_wide.png";
+import logo1 from "../img/logo1.png";
 import styles from "./Login.module.css";
 
 function Login({ onClickLoginBtn }) {

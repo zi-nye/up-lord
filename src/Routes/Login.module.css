@@ -144,7 +144,7 @@ html {
 }
 /* PC 화면 1200px 이하, PC 화면 1200px 이상 1920px 이하, PC 화면 1920px 이상, 패드 가로 */
 /* 1920px 이상은 기기가 저한테 없어요 ㅠㅡㅠㅡㅠㅡㅠㅡㅠ */
-@media (min-width: 992px) and (max-width: 1199.98px) {
+@media (min-width: 992px) {
   .root {
     display: flex;
     justify-content: center;
