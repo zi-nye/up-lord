@@ -13,9 +13,9 @@ function Home() {
 
   return (
     <div id="App" className={styles.app}>
-      <Sidebar pageWrapId={"page-wrap"} outerContainerId={"App"} />
-      <h1 id="page-wrap" className={styles.pageWrap}>
-        Home
+      <Sidebar outerContainerId={"App"} />
+      <h1 id="page-wrap" className={styles.header}>
+        <span className={styles.headerText}>Home</span>
       </h1>
     </div>
   );

@@ -1,6 +1,10 @@
 html {
   margin: 0;
+  font-size: 14px;
 }
-.pageWrap {
+.header {
   margin: 0;
+  font-size: 1.7rem;
+  font-weight: 100;
+  padding-top: 1rem;
 }
