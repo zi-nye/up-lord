@@ -44,6 +44,9 @@ html {
 .subtitle2 {
   padding-bottom: 0.357rem;
 }
+.kakaoLoginImgDiv {
+  cursor: pointer;
+}
 .kakaoLoginImg {
   width: 23rem;
 }
