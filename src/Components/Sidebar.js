@@ -8,14 +8,8 @@ function Sidebar(props) {
       <a className="menu-item" href="/">
         Home
       </a>
-      <a className="menu-item" href="/burgers">
-        Burgers
-      </a>
-      <a className="menu-item" href="/pizzas">
-        Pizzas
-      </a>
-      <a className="menu-item" href="/desserts">
-        Desserts
+      <a className="menu-item" href="/admin_page">
+        관리자 설정
       </a>
     </Menu>
   );
