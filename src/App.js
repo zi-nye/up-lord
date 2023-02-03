@@ -3,7 +3,7 @@ import Login from "./Routes/Login";
 import Router from "./Routes/router";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const onClickLoginBtn = () => {
     const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;

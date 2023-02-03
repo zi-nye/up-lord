@@ -7,7 +7,15 @@ function SystemCommonCodeAdmin() {
       <div>
         <FixedSidebar />
       </div>
-      <h1>SystemCommonCodeAdmin</h1>
+      <div>
+        <div>
+          <table>
+            <th>코드명</th>
+            <th>코드설명</th>
+            <th>코드</th>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }
