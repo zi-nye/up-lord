@@ -3,7 +3,15 @@ import kakaoLogin from "../img/kakao_login_large_wide.png";
 import logo1 from "../img/logo1.png";
 import styles from "./Login.module.css";
 
-function Login({ onClickLoginBtn }) {
+function Login() {
+  const onClickLoginBtn = () => {
+    const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+    const REDIRECT_URI = "http://localhost:3000/oauth";
+
+    // KAKAO AUTH URL로 이동
+    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+  };
+
   return (
     <div className={styles.root}>
       <div className={styles.app}>

@@ -1,27 +1,14 @@
-import React, { useEffect, useState } from "react";
-import Login from "./Routes/Login";
+import React, { useState } from "react";
 import Router from "./Routes/router";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const onClickLoginBtn = () => {
-    const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
-    const REDIRECT_URI = "http://localhost:3000/oauth";
-    const KAKAO_AUTH_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
-    window.location.href = KAKAO_AUTH_URI;
-  };
-
-  useEffect(() => {
-    if (!isLoggedIn) {
-      const code = new URL(window.location.href).searchParams.get("code");
-      console.log(code);
-    }
-  }, []);
+  // TODO: isLoggedIn 말고 context로 체크하자
+  //  * 아래 구문 제거하고 각 요청 안에서 관리하자
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <div className="App">
-      {isLoggedIn ? <Router /> : <Login onClickLoginBtn={onClickLoginBtn} />}
+      {<Router />}
     </div>
   );
 }
