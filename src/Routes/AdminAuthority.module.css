@@ -1,0 +1,48 @@
+html {
+  margin: 0;
+  margin-left: 2rem;
+  font-size: 14px;
+}
+.body {
+  display: flex;
+}
+.sidebar {
+  padding-right: 2rem;
+  border-right: 1px solid #aaa;
+}
+.contents {
+  padding-top: 1rem;
+  margin-left: 4rem;
+}
+.searching {
+  display: flex;
+  margin: 0;
+  padding: 1rem;
+}
+.searching_ {
+  margin-right: 1rem;
+}
+.tableDiv {
+  padding: 1rem;
+}
+table {
+  border-collapse: collapse;
+  border: 0;
+}
+th,
+td {
+  border: 1px solid #aaa;
+  background-clip: padding-box;
+  scroll-snap-align: start;
+  padding: 0.6rem;
+  min-width: 6rem;
+  text-align: left;
+  margin: 0;
+}
+.saving {
+  display: flex;
+  padding: 1rem;
+}
+.saving_ {
+  margin-right: 1rem;
+}
