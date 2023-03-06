@@ -1,10 +1,6 @@
-html {
-  margin: 0;
-  margin-left: 2rem;
-  font-size: 14px;
-}
 .body {
   display: flex;
+  margin-left: 2rem;
 }
 .sidebar {
   padding-right: 2rem;
