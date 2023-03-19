@@ -1,55 +1,29 @@
 import {useNavigate} from "react-router-dom";
 import {Api} from "../utils/Api";
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect} from "react";
 
 function KakaoAuth() {
   const navigate = useNavigate();
-  // const dispatch = useContext(DispatchContext);
-  const [code, setCode] = useState("");
 
-  const getSourceCode = async () => {
-    // url에 붙어 있는 코드를 가져온다.
-    const params = new URLSearchParams(window.location.search);
-    const _code = params.get("code");
-    
-    if (!code) {
-      await kakaoLogin(_code);
-    }
-    setCode(_code);
-  }
+  // url에 붙어 있는 코드를 가져온다.
+  const params = new URLSearchParams(window.location.search);
+  const kakaoCode = params.get("code");
 
-  const kakaoLogin = async (_code) => {
-    if (!_code) return;
-    console.log(_code);
-    return; // TODO: 지울 것.
+  useEffect(  ()=> {
+    Api.post("/oauth/kakao", {code: kakaoCode})
+        .then(({data}) => {
+          console.log(data);
+          // 백엔드에게 받은 토큰을 저장한다.
+          const token = data.token;
+          sessionStorage.setItem("userToken", token);
 
-    try{
-      const res = await Api.post("/oauth/kakao", {code: _code});
-      console.log(res);
-      // 백엔드에게 받은 토큰을 저장한다.
-      const token = res.token;
-
-      sessionStorage.setItem("userToken", token);
-
-    } catch (e) {
-      alert(e);
-      navigate("/login");
-
-      return;
-    }
-    // dispatch 함수를 이용해 로그인 상태로 변환해준다.
-    // dispatch({
-    //   type: "LOGIN",
-    //   payload: kakaoUser,
-    // })
-
-    navigate("/");
-  };
-
-  //⃣ useEffect를 이용해 redirect url에서 코드를 받아 온다.
-  useEffect( ()=> {
-    getSourceCode();
-  }, [])
+          navigate("/");
+        })
+        .catch((e) => {
+          console.error(e);
+          navigate("/login");
+        })
+  }, []);
 
 
   return (
