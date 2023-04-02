@@ -21,6 +21,7 @@ function KakaoAuth() {
         })
         .catch((e) => {
           console.error(e);
+          alert(e.response.data.msg);
           navigate("/login");
         })
   }, []);
