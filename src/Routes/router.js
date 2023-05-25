@@ -17,7 +17,7 @@ function Router() {
         <Route path="/oauth" element={<KakaoAuth />} />
         <Route path="/admin_page" element={<AdminPage />} />
         <Route path="/admin_page/authority" element={<AdminAuthority />} />
-        <Route path="/attendance" element={<Attendance />} />
+        <Route path="/attendance/:date" element={<Attendance />} />
         <Route path="/calendar" element={<Calendar />} />
         {/* <Route path="/group_:groupId" element={<Group />} /> */}
       </Routes>
