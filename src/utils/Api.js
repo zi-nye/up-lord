@@ -43,7 +43,7 @@ export class Api {
 
   static async get (endpoint, params) {
     return this.customAxios.get(this.getUrl(endpoint), {
-      params: params
+      params: params,
     });
   }
 

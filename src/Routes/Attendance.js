@@ -2,53 +2,65 @@ import React, {useEffect, useState} from "react";
 import FixedSidebar from "../Components/FixedSidebar";
 import styles from "./AdminAuthority.module.css";
 import {Api} from "../utils/Api";
+import {useParams} from "react-router-dom";
 
 
 /** List **/
-function AuthorityListItem({item: {userId, userEmail, username, useYn}, onSelect}) {
+function AttendanceListItem({item: {attendanceId, nthYear, cellName, memberIdx, memberName, attendanceYn}}) {
+  const [isPresented, setIsPresented] = useState(attendanceYn === 'Y');
+  const {date} = useParams();
+  //TODO
+  // 1. attendanceYn에 따라 버튼 달리하기
+  // 2. 버튼 이벤트 달기 (API 호출)
+  const onPresent = async function (event) {
+
+    const res = await Api.put(`/attendance`, {memberIdx, attendanceDate: date});
+    if (res.data.result) {
+      setIsPresented(true);
+    }
+
+  }
+
+  const onCancel = async function (event) {
+
+    const res = await Api.put(`/attendance/cancel`, {memberIdx, attendanceDate: date});
+    console.log(res);
+    if (res.data.result) {
+      setIsPresented(false);
+    }
+
+    console.log(res);
+  }
+
+
   return (
       <tr>
-        <td><input onChange={onSelect} value={userId} type="checkbox"/></td>
-        <td>{userEmail}</td>
-        <td>{username}</td>
-        <td>{useYn}</td>
+        <td>{nthYear}</td>
+        <td>{cellName}</td>
+        <td><b>{memberName}</b></td>
+        <td>
+          <button onClick={isPresented ? onCancel : onPresent}>{isPresented ? "취소" : "출석"}</button>
+        </td>
       </tr>
   );
 }
 
-function AuthorityList({onSelect}) {
-  const [authorityList, setAuthorityList] = useState([]);
-
-  useEffect(() => {
-    const getAuthorityList = async () => {
-      try {
-        const res = await Api.get('/sysManage/userManage');
-
-        console.log(res);
-        setAuthorityList(res.data);
-
-      } catch (e) {
-        //TODO 에러 바운더리?
-      }
-    };
-
-    getAuthorityList();
-  }, []);
+function AttendanceList({list}) {
 
   return (
       <div className={styles.tableDiv}>
         <table>
           <thead>
           <tr>
-            <th></th>
-            <th>계정</th>
-            <th>아이디</th>
-            <th>권한</th>
+            <th>기수</th>
+            <th>셀</th>
+            <th>이름</th>
+            <th>버튼</th>
           </tr>
           </thead>
           <tbody>
-          {authorityList.map((item) =>
-              <AuthorityListItem key={item['userId']} item={item} onSelect={onSelect}/>
+          {list.map((item) =>
+              <AttendanceListItem key={item['attendanceId']} item={item}/>
           )}
           </tbody>
         </table>
@@ -59,32 +71,29 @@ function AuthorityList({onSelect}) {
 
 /** PAGE **/
 function Attendance() {
+  const {date} = useParams();
+  const [attendanceList, setAttendanceList] = useState([]);
 
-  const [userIds, setUserIds] = useState([]);
+  const getAttendanceList = async () => {
+    try {
+      const res = await Api.get('/attendance', {date});
 
-  const updateUserAuthority = async (userIds, useYn) => {
-    const data = userIds.map((userId) => ({
-      userId: userId,
-      useYn: useYn,
-    }));
-
-    const res = await Api.put('/sysManage/userManage', data);
+      setAttendanceList(res.data);
+    } catch (e) {
+      //TODO 에러 바운더리?
+    }
   };
 
+  const onCreateBtnClick = async (event) => {
+    const res = await Api.post('/attendance', {attendanceDate: date});
+    console.log(res);
 
-  const onItemSelect = (e) => {
-    if(e.target.checked) {
-      setUserIds([...userIds, e.target.value]);
-    } else {
-      setUserIds(userIds.filter((id) => id !== e.target.value));
-    }
+    await getAttendanceList();
   }
 
-  const onSaveButtonClick = async (e) => {
-    const useYn = e.target.value
-    await updateUserAuthority(userIds, useYn)
-  }
-
+  useEffect(() => {
+    getAttendanceList();
+  }, []);
 
   return (
       <div>
@@ -94,22 +103,25 @@ function Attendance() {
             <FixedSidebar/>
           </div>
           <div className={styles.contents}>
-            <div className={styles.searching}>
-              <div className={styles.searching_}>
-                <span>계정 :&nbsp;</span>
-                <input/>
-              </div>
-              <div className={styles.searching_}>
-                <button>검색</button>
-              </div>
-            </div>
-            <AuthorityList onSelect={onItemSelect}/>
-            <div className={styles.saving}>
-              <div>
-                <button onClick={onSaveButtonClick} value="Y">권한 부여</button>
-                <button onClick={onSaveButtonClick} value="N">권한 취소</button>
-              </div>
-            </div>
+            {attendanceList.length ?
+                <>
+                  <div className={styles.searching}>
+                    <div className={styles.searching_}>
+                      <span>계정 :&nbsp;</span>
+                      <input/>
+                    </div>
+                    <div className={styles.searching_}>
+                      <button>검색</button>
+                    </div>
+                  </div>
+                  <AttendanceList list={attendanceList}/>
+                </>
+                :
+                <button onClick={onCreateBtnClick}>
+                  출석부 생성
+                </button>
+            }
+
           </div>
         </div>
       </div>

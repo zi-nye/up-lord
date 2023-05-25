@@ -28,7 +28,7 @@ function AuthorityList({onSelect}) {
         setAuthorityList(res.data);
 
       } catch (e) {
-        //TODO 에러 바운더리?
+        //TODO.md 에러 바운더리?
       }
     };
 
@@ -59,7 +59,7 @@ function AuthorityList({onSelect}) {
 
 /** PAGE **/
 function AdminAuthority() {
-  //TODO:
+  //TODO.md:
   // 2. 검색
   // 3. 페이징
   // 4. PUT 호출
