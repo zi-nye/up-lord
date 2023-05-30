@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import FixedSidebar from "../Components/FixedSidebar";
 import styles from "./Home.module.css";
 import Sidebar from "../Components/Sidebar";
 import FullCalendar from '@fullcalendar/react' // must go before plugins
@@ -11,15 +10,13 @@ function Calendar() {
   const navigate = useNavigate();
 
   return (
-      <div id="App" className={styles.app}>
-        <Sidebar outerContainerId={"App"} />
-        <div>
+      <div className="mh-100">
         <FullCalendar
-            plugins={[ dayGridPlugin, interactionPlugin ]}
+            plugins={[dayGridPlugin, interactionPlugin]}
             initialView="dayGridMonth"
             dateClick={({dateStr}) => navigate(`/attendance/${dateStr}`)}
+            expandRows={true}
         />
-        </div>
       </div>
   );
 }
