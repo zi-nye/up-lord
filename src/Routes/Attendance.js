@@ -3,6 +3,7 @@ import FixedSidebar from "../Components/FixedSidebar";
 import styles from "./AdminAuthority.module.css";
 import {Api} from "../utils/Api";
 import {useParams} from "react-router-dom";
+import {Button, Container, Form, InputGroup, Table} from "react-bootstrap";
 
 
 /** List **/
@@ -48,23 +49,21 @@ function AttendanceListItem({item: {attendanceId, nthYear, cellName, memberIdx, 
 function AttendanceList({list}) {
 
   return (
-      <div className={styles.tableDiv}>
-        <table>
-          <thead>
-          <tr>
-            <th>기수</th>
-            <th>셀</th>
-            <th>이름</th>
-            <th>버튼</th>
-          </tr>
-          </thead>
-          <tbody>
-          {list.map((item) =>
-              <AttendanceListItem key={item['attendanceId']} item={item}/>
-          )}
-          </tbody>
-        </table>
-      </div>
+      <Table>
+        <thead>
+        <tr>
+          <th>기수</th>
+          <th>셀</th>
+          <th>이름</th>
+          <th>버튼</th>
+        </tr>
+        </thead>
+        <tbody>
+        {list.map((item) =>
+            <AttendanceListItem key={item['attendanceId']} item={item}/>
+        )}
+        </tbody>
+      </Table>
   )
 }
 
@@ -96,35 +95,27 @@ function Attendance() {
   }, []);
 
   return (
-      <div>
+      <Container>
         <h1>출석부</h1>
-        <div className={styles.body}>
-          <div className={styles.sidebar}>
-            <FixedSidebar/>
-          </div>
-          <div className={styles.contents}>
-            {attendanceList.length ?
-                <>
-                  <div className={styles.searching}>
-                    <div className={styles.searching_}>
-                      <span>계정 :&nbsp;</span>
-                      <input/>
-                    </div>
-                    <div className={styles.searching_}>
-                      <button>검색</button>
-                    </div>
-                  </div>
-                  <AttendanceList list={attendanceList}/>
-                </>
-                :
-                <button onClick={onCreateBtnClick}>
-                  출석부 생성
-                </button>
-            }
+        {attendanceList.length ?
+            <>
+              <InputGroup className="mb-3">
+                <Form.Control
+                    placeholder="계정 검색하기"
+                    aria-describedby="basic-addon2"
+                />
+                {/* TODO 검색 API 추가 */}
+                <Button variant="outline-secondary" id="button-addon2">
+                  검색
+                </Button>
+              </InputGroup>
+              <AttendanceList list={attendanceList}/>
+            </>
+            :
+            <Button onClick={onCreateBtnClick} variant="outline-primary">출석부 생성</Button>
+        }
 
-          </div>
-        </div>
-      </div>
+      </Container>
   );
 }
 

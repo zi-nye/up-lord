@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
-import FixedSidebar from "../Components/FixedSidebar";
-import styles from "./AdminAuthority.module.css";
 import {Api} from "../utils/Api";
+import {Table, Form, Button, InputGroup, Container, ButtonGroup, Row, Col} from "react-bootstrap";
 
 
 /** List **/
@@ -36,23 +35,21 @@ function AuthorityList({onSelect}) {
   }, []);
 
   return (
-      <div className={styles.tableDiv}>
-        <table>
-          <thead>
-          <tr>
-            <th></th>
-            <th>계정</th>
-            <th>아이디</th>
-            <th>권한</th>
-          </tr>
-          </thead>
-          <tbody>
-          {authorityList.map((item) =>
-              <AuthorityListItem key={item['userId']} item={item} onSelect={onSelect}/>
-          )}
-          </tbody>
-        </table>
-      </div>
+      <Table striped bordered hover>
+        <thead>
+        <tr>
+          <th></th>
+          <th>계정</th>
+          <th>아이디</th>
+          <th>권한</th>
+        </tr>
+        </thead>
+        <tbody>
+        {authorityList.map((item) =>
+            <AuthorityListItem key={item['userId']} item={item} onSelect={onSelect}/>
+        )}
+        </tbody>
+      </Table>
   )
 }
 
@@ -78,7 +75,7 @@ function AdminAuthority() {
 
 
   const onItemSelect = (e) => {
-    if(e.target.checked) {
+    if (e.target.checked) {
       setUserIds([...userIds, e.target.value]);
     } else {
       setUserIds(userIds.filter((id) => id !== e.target.value));
@@ -92,32 +89,28 @@ function AdminAuthority() {
 
 
   return (
-      <div>
+      <Container>
         <h1>권한관리</h1>
-        <div className={styles.body}>
-          <div className={styles.sidebar}>
-            <FixedSidebar/>
-          </div>
-          <div className={styles.contents}>
-            <div className={styles.searching}>
-              <div className={styles.searching_}>
-                <span>계정 :&nbsp;</span>
-                <input/>
-              </div>
-              <div className={styles.searching_}>
-                <button>검색</button>
-              </div>
-            </div>
+        <Row className="justify-content-center" >
+          <Col lg>
+            <InputGroup className="mb-3">
+              <Form.Control
+                  placeholder="계정 검색하기"
+                  aria-describedby="basic-addon2"
+              />
+              {/* TODO 검색 API 추가 */}
+              <Button variant="outline-secondary" id="button-addon2">
+                검색
+              </Button>
+            </InputGroup>
             <AuthorityList onSelect={onItemSelect}/>
-            <div className={styles.saving}>
-              <div>
-                <button onClick={onSaveButtonClick} value="Y">권한 부여</button>
-                <button onClick={onSaveButtonClick} value="N">권한 취소</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            <ButtonGroup>
+              <Button onClick={onSaveButtonClick} value="Y" variant="outline-primary">권한 부여</Button>
+              <Button onClick={onSaveButtonClick} value="N" variant="outline-danger">권한 취소</Button>
+            </ButtonGroup>
+          </Col>
+        </Row>
+      </Container>
   );
 }
 
