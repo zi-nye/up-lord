@@ -1,7 +1,7 @@
 import React from "react";
 import routes from "./Routes/router";
 import {Container, Row, Col, Navbar, Nav} from 'react-bootstrap';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 
 const App = () => {
   const navs = routes.map(({name, route, hidden}) => {
@@ -15,7 +15,6 @@ const App = () => {
 
   return (
       <div className="App">
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Container fluid>
             <Navbar bg="light" expand="lg">
               <Navbar.Brand href="#">UP-LORD</Navbar.Brand>
@@ -41,7 +40,6 @@ const App = () => {
               </Col>
             </Row>
           </Container>
-        </BrowserRouter>
       </div>
   );
 };
