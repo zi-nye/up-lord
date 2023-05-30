@@ -15,7 +15,7 @@ const App = () => {
 
   return (
       <div className="App">
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Container fluid>
             <Navbar bg="light" expand="lg">
               <Navbar.Brand href="#">UP-LORD</Navbar.Brand>

@@ -1,7 +1,7 @@
 {
   "name": "up-lord",
   "version": "0.1.0",
-  "homepage": "https://zi-nye.github.io",
+  "homepage": "https://zi-nye.github.io/up-lord",
   "private": true,
   "dependencies": {
     "@fullcalendar/core": "^6.1.6",
