@@ -48,6 +48,17 @@ jobs:
           PUBLIC_URL=$(echo $GITHUB_REPOSITORY | sed -r 's/^.+\/(.+)$/\/\1\//')
           echo PUBLIC_URL=$PUBLIC_URL > .env
 
+      # Github Repository Secrets를 통해 환경 변수 파일을 생성합니다.
+      - name: Generate Environment Variables File for Production
+        run: |
+          echo "REACT_APP_REST_API_KEY=REACT_APP_REST_API_KEY" >> .env
+          echo "REACT_APP_BASE_URL=REACT_APP_BASE_URL" >> .env
+          echo "REACT_APP_API_URL_BASE=REACT_APP_API_URL_BASE" >> .env
+        env:
+          REACT_APP_REST_API_KEY: ${{ secrets.REACT_APP_REST_API_KEY }}
+          REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
+          REACT_APP_API_URL_BASE: ${{ secrets.REACT_APP_API_URL_BASE }}
+
       - name: Build
         run: |
           npm run build
