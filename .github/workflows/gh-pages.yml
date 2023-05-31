@@ -7,30 +7,25 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout source code.
-        uses: actions/checkout@v2
+    runs-on: ubuntu-latest
 
-      - name: Install dependencies
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.17.x
+
+      - name: Install Dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build
+      - name: Build Docs
+        run: npm run build:docs
 
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - run: npm ci
-      - run: npm run build
-
-      - name: Deploy
+      - name: Deploy Docs
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./dist
