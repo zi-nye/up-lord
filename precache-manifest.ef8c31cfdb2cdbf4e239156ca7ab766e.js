@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/up-lord/static/media/logo1.30e319db.png"
   },
   {
-    "revision": "f158f90f386bec2194408904cb076895",
+    "revision": "d431acf4713d1d40fb685168ba892aee",
     "url": "/up-lord/index.html"
   }
 ];
