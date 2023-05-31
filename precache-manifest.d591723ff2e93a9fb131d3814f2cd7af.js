@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "168575346cb1bb2e942d",
+    "revision": "3cd39a9dc7f002d34abe",
     "url": "/up-lord/static/css/main.21cd1086.chunk.css"
   },
   {
-    "revision": "168575346cb1bb2e942d",
-    "url": "/up-lord/static/js/main.16857534.chunk.js"
+    "revision": "3cd39a9dc7f002d34abe",
+    "url": "/up-lord/static/js/main.3cd39a9d.chunk.js"
   },
   {
     "revision": "29a3a83a36aecf752028",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/up-lord/static/media/logo1.30e319db.png"
   },
   {
-    "revision": "9723c89f6bd152c8ce5c634ff1ce6436",
+    "revision": "9865e7a798b17ff65bc5357dbef38015",
     "url": "/up-lord/index.html"
   }
 ];
