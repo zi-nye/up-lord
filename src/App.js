@@ -8,6 +8,7 @@ const App = () => {
     if (hidden) {
       return;
     }
+
     return <NavLink key={route} to={route}>{name}</NavLink>
   })
 
