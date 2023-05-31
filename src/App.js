@@ -1,17 +1,15 @@
 import React from "react";
 import routes from "./Routes/router";
 import {Container, Row, Col, Navbar, Nav} from 'react-bootstrap';
-import {Route, Routes} from "react-router-dom";
+import {Link, NavLink, Route, Routes} from "react-router-dom";
 
 const App = () => {
   const navs = routes.map(({name, route, hidden}) => {
     if (hidden) {
-      return undefined;
+      return;
     }
-    return <Nav.Link key={route} href={route}>{name}</Nav.Link>
+    return <NavLink key={route} to={route}>{name}</NavLink>
   })
-
-  console.log(routes);
 
   return (
       <div className="App">
