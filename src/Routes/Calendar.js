@@ -1,6 +1,4 @@
-import React, {useEffect, useState} from "react";
-import styles from "./Home.module.css";
-import Sidebar from "../Components/Sidebar";
+import React from "react";
 import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import interactionPlugin from '@fullcalendar/interaction';

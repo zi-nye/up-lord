@@ -6,7 +6,7 @@ import {Route, Routes} from "react-router-dom";
 const App = () => {
   const navs = routes.map(({name, route, hidden}) => {
     if (hidden) {
-      return;
+      return undefined;
     }
     return <Nav.Link key={route} href={route}>{name}</Nav.Link>
   })

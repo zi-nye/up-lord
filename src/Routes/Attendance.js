@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from "react";
-import FixedSidebar from "../Components/FixedSidebar";
-import styles from "./AdminAuthority.module.css";
 import {Api} from "../utils/Api";
 import {useParams} from "react-router-dom";
 import {Button, Container, Form, InputGroup, Table} from "react-bootstrap";

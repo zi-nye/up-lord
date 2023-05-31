@@ -70,7 +70,7 @@ function AdminAuthority() {
       useYn: useYn,
     }));
 
-    const res = await Api.put('/sysManage/userManage', data);
+    await Api.put('/sysManage/userManage', data);
   };
 
 
