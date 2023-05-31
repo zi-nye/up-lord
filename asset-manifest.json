@@ -1,7 +1,7 @@
 {
   "main.css": "/up-lord/static/css/main.21cd1086.chunk.css",
-  "main.js": "/up-lord/static/js/main.90ee0b62.chunk.js",
-  "main.js.map": "/up-lord/static/js/main.90ee0b62.chunk.js.map",
+  "main.js": "/up-lord/static/js/main.7053a5bc.chunk.js",
+  "main.js.map": "/up-lord/static/js/main.7053a5bc.chunk.js.map",
   "static/css/1.07f0502d.chunk.css": "/up-lord/static/css/1.07f0502d.chunk.css",
   "static/js/1.29a3a83a.chunk.js": "/up-lord/static/js/1.29a3a83a.chunk.js",
   "static/js/1.29a3a83a.chunk.js.map": "/up-lord/static/js/1.29a3a83a.chunk.js.map",
@@ -11,6 +11,6 @@
   "static/css/main.21cd1086.chunk.css.map": "/up-lord/static/css/main.21cd1086.chunk.css.map",
   "static/css/1.07f0502d.chunk.css.map": "/up-lord/static/css/1.07f0502d.chunk.css.map",
   "index.html": "/up-lord/index.html",
-  "precache-manifest.b164c2de24a659f908aebc486e74996a.js": "/up-lord/precache-manifest.b164c2de24a659f908aebc486e74996a.js",
+  "precache-manifest.cf4770e630085c591b908d0cce4c9e8d.js": "/up-lord/precache-manifest.cf4770e630085c591b908d0cce4c9e8d.js",
   "service-worker.js": "/up-lord/service-worker.js"
 }
